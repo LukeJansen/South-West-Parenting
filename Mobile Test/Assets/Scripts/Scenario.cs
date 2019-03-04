@@ -5,6 +5,7 @@ using UnityEngine;
 public class Scenario
 {
     public string Title { set; get; }
+    public string Text { set; get; }
     public List<Option> Options { set; get; }
 
     public Scenario()
@@ -15,5 +16,11 @@ public class Scenario
     public Scenario(string title)
     {
         Title = title;
+    }
+
+    public Scenario(string title, string text)
+    {
+        Title = title;
+        Text = text;
     }
 }

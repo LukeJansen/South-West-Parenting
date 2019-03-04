@@ -6,19 +6,22 @@ using UnityEngine.UI;
 public class ScenarioController : MonoBehaviour
 {
     public GameObject buttonPrefab;
-    public Text titleText;
+    public Text titleText, textText;
 
     private Scenario scenario1, scenario2, scenario3, scenario4;
     private Option option1, option2, option3, option4;
+    private List<GameObject> buttonList;
 
     private Scenario currentScenario;
 
     void Start()
     {
-        scenario1 = new Scenario("Scenario 1");
-        scenario2 = new Scenario("Scenario 2");
-        scenario3 = new Scenario("Scenario 3");
-        scenario4 = new Scenario("Scenario 4");
+        buttonList = new List<GameObject>();
+
+        scenario1 = new Scenario("Scenario 1", "Child is born");
+        scenario2 = new Scenario("Scenario 2", "Child says first word");
+        scenario3 = new Scenario("Scenario 3", "Child falls over and is hurt");
+        scenario4 = new Scenario("Scenario 4", "Child is now a teen");
 
         option1 = new Option("Go to Scenario 1", scenario1);
         option2 = new Option("Go to Scenario 2", scenario2);
@@ -58,8 +61,10 @@ public class ScenarioController : MonoBehaviour
     private void LoadScenario()
     {
         titleText.text = currentScenario.Title;
+        textText.text = currentScenario.Text;
 
-        List<GameObject> buttonList = new List<GameObject>();
+        if (buttonList.Count > 0) ClearButtons();
+
 
         for (int i = 0; i < currentScenario.Options.Count; i++)
         {
@@ -69,6 +74,16 @@ public class ScenarioController : MonoBehaviour
         }
 
         GetComponent<ResponsiveUI>().SetupButtons(buttonList);
+    }
+
+    private void ClearButtons()
+    {
+        for (int i = 0; i < buttonList.Count; i++)
+        {
+            Destroy(buttonList[i]);
+        }
+
+        buttonList.Clear();
     }
 
     public void ChangeScenario(Scenario scenario)
