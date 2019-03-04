@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class ButtonData : MonoBehaviour
 {
     public Scenario Link { set; get; }
+    public Option Option { set; get; }
 
     private void Start()
     {
@@ -14,6 +15,6 @@ public class ButtonData : MonoBehaviour
 
     private void Click()
     {
-        transform.parent.GetComponent<ScenarioController>().ChangeScenario(Link);
+        transform.parent.GetComponent<ScenarioController>().ChangeScenario(Link, Option);
     }
 }

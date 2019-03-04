@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class ScenarioController : MonoBehaviour
@@ -9,7 +10,7 @@ public class ScenarioController : MonoBehaviour
     public Text titleText, textText;
 
     private Scenario scenario1, scenario2, scenario3, scenario4;
-    private Option option1, option2, option3, option4;
+    private Option option1, option2, option3, option4, option5;
     private List<GameObject> buttonList;
 
     private Scenario currentScenario;
@@ -27,6 +28,7 @@ public class ScenarioController : MonoBehaviour
         option2 = new Option("Go to Scenario 2", scenario2);
         option3 = new Option("Go to Scenario 3", scenario3);
         option4 = new Option("Go to Scenario 4", scenario4);
+        option5 = new Option("End Screen");
 
 
         List<Option> tempList = new List<Option>();
@@ -48,12 +50,10 @@ public class ScenarioController : MonoBehaviour
         scenario3.Options = tempList;
 
         tempList = new List<Option>();
-        tempList.Add(option1);
-        tempList.Add(option2);
-        tempList.Add(option3);
+        tempList.Add(option5);
         scenario4.Options = tempList;
 
-        currentScenario = scenario2;
+        currentScenario = scenario1;
 
         LoadScenario();
     }
@@ -70,6 +70,7 @@ public class ScenarioController : MonoBehaviour
         {
             buttonList.Add(Instantiate(buttonPrefab, transform));
             buttonList[i].GetComponent<ButtonData>().Link = currentScenario.Options[i].Link;
+            buttonList[i].GetComponent<ButtonData>().Option = currentScenario.Options[i];
             buttonList[i].transform.GetChild(0).GetComponent<Text>().text = currentScenario.Options[i].Text;
         }
 
@@ -86,10 +87,17 @@ public class ScenarioController : MonoBehaviour
         buttonList.Clear();
     }
 
-    public void ChangeScenario(Scenario scenario)
+    public void ChangeScenario(Scenario scenario, Option option)
     {
-        currentScenario = scenario;
-        LoadScenario();
+        if (option.Text == "End Screen")
+        {
+            SceneManager.LoadScene(1);
+        }
+        else
+        {
+            GameObject.Find("Data").GetComponent<DataHolder>().chosenOptions.Add(option);
+            currentScenario = scenario;
+            LoadScenario();
+        }
     }
-
 }

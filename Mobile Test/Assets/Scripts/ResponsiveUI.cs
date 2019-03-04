@@ -7,7 +7,6 @@ using UnityEngine.UI;
 public class ResponsiveUI : MonoBehaviour
 {
     private int screenWidth, screenHeight;
-    private int direction;
 
     public RectTransform scenarioText;
     public List<GameObject> buttons;
@@ -20,8 +19,6 @@ public class ResponsiveUI : MonoBehaviour
         Debug.Log("Width: " + screenWidth + ", Height: " + screenHeight);
 
         setup();
-
-        direction = -10;
     }
 
     private void setup()

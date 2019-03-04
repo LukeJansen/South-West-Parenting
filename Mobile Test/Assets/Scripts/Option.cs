@@ -13,6 +13,12 @@ public class Option
         Link = null;
     }
 
+    public Option(string text)
+    {
+        Text = text;
+        Link = null;
+    }
+
     public Option(string text, Scenario link)
     {
         Text = text;
