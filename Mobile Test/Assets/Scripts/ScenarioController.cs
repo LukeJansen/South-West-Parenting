@@ -91,7 +91,7 @@ public class ScenarioController : MonoBehaviour
     {
         if (option.Text == "End Screen")
         {
-            SceneManager.LoadScene(1);
+            SceneManager.LoadScene(2);
         }
         else
         {

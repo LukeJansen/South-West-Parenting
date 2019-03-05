@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class EndScreenBehaviour : MonoBehaviour
 {
-    public RectTransform optionText;
+    public RectTransform optionText, optionTitle;
     public Text text;
     
     private float screenWidth, screenHeight;
@@ -28,8 +28,9 @@ public class EndScreenBehaviour : MonoBehaviour
     {
         RectTransform mainPanel = GetComponent<RectTransform>();
         mainPanel.sizeDelta = new Vector2(screenWidth, screenHeight);
+        optionTitle.anchoredPosition = new Vector2(0, -screenHeight * 0.1f);
         optionText.sizeDelta = new Vector2(screenWidth * 0.7f, screenHeight * 0.3f);
-        //optionText.anchoredPosition = new Vector2(-(screenWidth * 0.4f), -450);
+        optionText.anchoredPosition = new Vector2(0, -screenHeight * 0.2f);
     }
 
     private void OptionText()

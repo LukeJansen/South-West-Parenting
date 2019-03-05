@@ -8,7 +8,7 @@ public class ResponsiveUI : MonoBehaviour
 {
     private int screenWidth, screenHeight;
 
-    public RectTransform scenarioText;
+    public RectTransform scenarioText, scenarioTitle;
     public List<GameObject> buttons;
 
     // Start is called before the first frame update
@@ -26,7 +26,8 @@ public class ResponsiveUI : MonoBehaviour
         RectTransform mainPanel = GetComponent<RectTransform>();
         mainPanel.sizeDelta = new Vector2(screenWidth, screenHeight);
         scenarioText.sizeDelta = new Vector2(screenWidth * 0.7f, screenHeight * 0.3f);
-        scenarioText.anchoredPosition = new Vector2(-(screenWidth * 0.4f), -450);
+        scenarioText.anchoredPosition = new Vector2(-(screenWidth * 0.4f), -(screenHeight * 0.2f));
+        scenarioTitle.anchoredPosition = new Vector2(0, -(screenHeight * 0.1f));
     }
 
     private void GrabScreenSize()
@@ -44,10 +45,15 @@ public class ResponsiveUI : MonoBehaviour
         {
             RectTransform buttonTransform = buttons[i - 1].GetComponent<RectTransform>();
 
-            buttonTransform.sizeDelta = new Vector2(screenWidth * 0.75f, (screenHeight * 0.3f) / (buttons.Count + 1));
+            float buttonHeight = Mathf.Clamp((screenHeight * 0.5f) / (buttons.Count + 1), 100, 200);
 
-            float y = ((screenHeight / 3) / (buttons.Count)) * (buttons.Count - (i - 1));
-            buttonTransform.anchoredPosition = new Vector3(0, y, 0);
+            buttonTransform.sizeDelta = new Vector2(screenWidth * 0.75f, buttonHeight);
+
+            float ySpacing = buttonHeight / (buttons.Count);
+
+            float y = (buttonHeight * ((buttons.Count) - (i - 1))) + ySpacing;
+
+            buttonTransform.anchoredPosition = new Vector3(0f, y, 0f);
         }
     }
 }
