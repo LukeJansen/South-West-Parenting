@@ -7,6 +7,11 @@ public class Option
     public string Text { set; get; }
     public Scenario Link { set; get; }
 
+    public static Option CreateFromJson(string jsonString)
+    {
+        return JsonUtility.FromJson<Option>(jsonString);
+    }
+
     public Option()
     {
         Text = "INCOMPLETE";
