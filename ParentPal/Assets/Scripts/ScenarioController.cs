@@ -70,6 +70,7 @@ public class ScenarioController : MonoBehaviour
         }
 
         GetComponent<ResponsiveUI>().SetupButtons(buttonList);
+        GetComponent<ResponsiveUI>().ResizeTextBox();
     }
 
     private void ClearButtons()

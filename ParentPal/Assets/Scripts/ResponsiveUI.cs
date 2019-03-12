@@ -10,7 +10,8 @@ public class ResponsiveUI : MonoBehaviour
     private int minButtonHeight, maxButtonHeight;
     private float titleShare, textShare, buttonShare, imageShare;
 
-    public RectTransform scenarioText, scenarioTitle, scenarioImage;
+    public RectTransform scenarioScroll, scenarioTitle, scenarioTextBox, scenarioImage;
+    public Text scenarioText;
     public List<GameObject> buttons;
 
     // Start is called before the first frame update
@@ -41,8 +42,8 @@ public class ResponsiveUI : MonoBehaviour
         mainPanel.sizeDelta = new Vector2(screenWidth, screenHeight);
 
         // Resize the scenario's text box to the correct proportions and position.
-        scenarioText.sizeDelta = new Vector2(screenWidth * (1 - imageShare), screenHeight * textShare);
-        scenarioText.anchoredPosition = new Vector2(-(screenWidth * ((1 - imageShare) * 0.5f)), -(screenHeight * (titleShare)));
+        scenarioScroll.sizeDelta = new Vector2(screenWidth * (1 - imageShare), screenHeight * textShare);
+        scenarioScroll.anchoredPosition = new Vector2(-(screenWidth * ((1 - imageShare) * 0.5f)), -(screenHeight * titleShare) - (scenarioScroll.sizeDelta.y * 0.5f));
 
         // Resize the scenario's image to the correct proportions and position.
         scenarioImage.sizeDelta = new Vector2(screenWidth * imageShare, screenHeight * textShare);
@@ -81,5 +82,11 @@ public class ResponsiveUI : MonoBehaviour
             float y = ((buttonHeight * ((buttons.Count + 1) - i)) - (ySpacing * (i + 1))) - (buttonHeight * 0.5f);
             buttonTransform.anchoredPosition = new Vector3(0f, y, 0f);
         }
+    }
+
+    public void ResizeTextBox()
+    {
+        int lines = Mathf.CeilToInt(scenarioText.text.Length / 20);
+        scenarioTextBox.sizeDelta = new Vector2(scenarioTextBox.sizeDelta.x, lines * 55);
     }
 }
