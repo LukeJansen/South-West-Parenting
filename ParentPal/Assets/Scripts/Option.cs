@@ -2,10 +2,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+[System.Serializable]
 public class Option 
 {
-    public string Text { set; get; }
-    public Scenario Link { set; get; }
+    public string Text;
+    public int Link;
 
     public static Option CreateFromJson(string jsonString)
     {
@@ -15,16 +16,14 @@ public class Option
     public Option()
     {
         Text = "INCOMPLETE";
-        Link = null;
     }
 
     public Option(string text)
     {
         Text = text;
-        Link = null;
     }
 
-    public Option(string text, Scenario link)
+    public Option(string text, int link)
     {
         Text = text;
         Link = link;
