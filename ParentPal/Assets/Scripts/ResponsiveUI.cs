@@ -27,7 +27,7 @@ public class ResponsiveUI : MonoBehaviour
         titleShare = 0.1f;
         textShare = 0.5f;
         buttonShare = 0.4f;
-        //Vertical screen percantage for the image.
+        //Vertical screen percentage for the image.
         imageShare = 0.4f;
 
         setup();

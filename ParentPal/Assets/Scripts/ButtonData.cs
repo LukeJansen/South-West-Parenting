@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class ButtonData : MonoBehaviour
 {
-    public Scenario Link { set; get; }
+    public int Link { set; get; }
     public Option Option { set; get; }
 
     private void Start()

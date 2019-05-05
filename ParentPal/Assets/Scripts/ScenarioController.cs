@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.IO;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -9,7 +10,8 @@ public class ScenarioController : MonoBehaviour
     public GameObject buttonPrefab;
     public Text titleText, textText;
 
-    private Scenario scenario1, scenario2, scenario3, scenario4, scenario5;
+    private List<Scenario> scenarioList;
+    private Scenario tempScenario;
     private Option option1, option2, option3, option4, option5;
     private List<GameObject> buttonList;
 
@@ -18,38 +20,57 @@ public class ScenarioController : MonoBehaviour
     void Start()
     {
         buttonList = new List<GameObject>();
+        scenarioList = new List<Scenario>();
 
-        scenario1 = new Scenario("Scenario 1", "Teen sat playing games console in messy bedroom. Carer knocks on the door and walks in..." +
-            "\n\n1) Carer flies off the handle... We’ve got to go out soon – get off that blasted computer! and look at the state of this room!When is the last time you cleaned it ? " +
-            "\n\n2) Carer remains calm: Insert teen name, we’re leaving in half an hour.Can you finish playing your game, get changed and be ready in the kitchen by 7 o’clock.I will give you a reminder in 15 minutes.If you are still on the console, I will turn it off. " +
-            "\n\n3) Carer shouts upstairs to teen, “We need to go out soon.” Teen shouts back, “ok.” Without diverting their attention from the game." +
-            "\n\n4) Carer quietly enters teen’s room and requests they come off the computer game to go out later.Teen isn’t really listening");
+        //tempScenario = new Scenario("Scenario 1", "Teen sat playing games console in messy bedroom. Carer knocks on the door and walks in..." +
+        //    "\n\n1) Carer flies off the handle... We’ve got to go out soon – get off that blasted computer! and look at the state of this room!When is the last time you cleaned it ? " +
+        //    "\n\n2) Carer remains calm: Insert teen name, we’re leaving in half an hour.Can you finish playing your game, get changed and be ready in the kitchen by 7 o’clock.I will give you a reminder in 15 minutes.If you are still on the console, I will turn it off. " +
+        //    "\n\n3) Carer shouts upstairs to teen, “We need to go out soon.” Teen shouts back, “ok.” Without diverting their attention from the game." +
+        //    "\n\n4) Carer quietly enters teen’s room and requests they come off the computer game to go out later.Teen isn’t really listening");
 
-        scenario2 = new Scenario("Scenario 2", "Child says first word");
+        //scenarioList.Add(tempScenario);
 
-        option1 = new Option("Carer flies off the handle", scenario2);
-        option2 = new Option("Carer remains calm", scenario2);
-        option3 = new Option("Carer shouts upstairs", scenario2);
-        option4 = new Option("Carer quietly enters room", scenario2);
+        //tempScenario = new Scenario("Scenario 2", "Child says first word");
+        //scenarioList.Add(tempScenario);
 
-        List<Option> tempList = new List<Option>();
+        //option1 = new Option("Carer flies off the handle", 1);
+        //option2 = new Option("Carer remains calm", 1);
+        //option3 = new Option("Carer shouts upstairs", 1);
+        //option4 = new Option("Carer quietly enters room", 1);
 
-        tempList.Add(option1);
-        tempList.Add(option2);
-        tempList.Add(option3);
-        tempList.Add(option4);
+        //List<Option> tempList = new List<Option>();
 
-        scenario1.Options = tempList;
+        //tempList.Add(option1);
+        //tempList.Add(option2);
+        //tempList.Add(option3);
+        //tempList.Add(option4);
 
-        tempList = new List<Option>();
+        //scenarioList[0].Options = tempList;
 
-        option1 = new Option("End Screen");
+        //tempList = new List<Option>();
 
-        tempList.Add(option1);
+        //option1 = new Option("End Screen");
 
-        scenario2.Options = tempList;
+        //tempList.Add(option1);
 
-        currentScenario = scenario1;
+        //scenarioList[1].Options = tempList;
+
+        //scenarioList[1].ToFile();
+
+        string[] filePaths = Directory.GetFiles(@"Assets/Files/");
+
+        for (int i = 0; i < filePaths.Length; i++)
+        {
+            if (filePaths[i].Substring(filePaths[i].Length - 4) != "meta")
+            {
+                StreamReader reader = new StreamReader(filePaths[i]);
+                string json = reader.ReadLine();
+                scenarioList.Add(Scenario.CreateFromJson(json));
+                reader.Close();
+            }
+        }
+
+        currentScenario = scenarioList[0];
 
         LoadScenario();
     }
@@ -83,7 +104,7 @@ public class ScenarioController : MonoBehaviour
         buttonList.Clear();
     }
 
-    public void ChangeScenario(Scenario scenario, Option option)
+    public void ChangeScenario(int scenario, Option option)
     {
         if (option.Text == "End Screen")
         {
@@ -92,7 +113,7 @@ public class ScenarioController : MonoBehaviour
         else
         {
             GameObject.Find("Data").GetComponent<DataHolder>().chosenOptions.Add(option);
-            currentScenario = scenario;
+            currentScenario = scenarioList[option.Link];
             LoadScenario();
         }
     }
