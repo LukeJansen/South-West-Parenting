@@ -6,6 +6,7 @@ using UnityEngine;
 public class Option 
 {
     public string Text;
+    public string Description;
     public int Link;
 
     public static Option CreateFromJson(string jsonString)
