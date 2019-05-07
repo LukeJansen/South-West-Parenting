@@ -26,7 +26,6 @@ public class ScenarioController : MonoBehaviour
 
         for (int i = 0; i < filePaths.Length; i++)
         {
-            Debug.Log(filePaths[i]);
             if (filePaths[i].Substring(filePaths[i].Length - 4) != "meta")
             {
                 StreamReader reader = new StreamReader(filePaths[i]);

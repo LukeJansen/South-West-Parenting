@@ -12,6 +12,7 @@ public class Scenario
 
     public static Scenario CreateFromJson(string jsonString)
     {
+        Debug.Log(jsonString);
         return JsonUtility.FromJson<Scenario>(jsonString);
     }
 
