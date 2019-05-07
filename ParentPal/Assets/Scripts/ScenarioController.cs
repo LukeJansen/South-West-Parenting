@@ -25,7 +25,7 @@ public class ScenarioController : MonoBehaviour
 
         for (int i = 0; i < filePaths.Length; i++)
         {
-            if (filePaths[i].Substring(filePaths[i].Length - 4) != "meta")
+            if (filePaths[i].Substring(filePaths[i].Length - 4) != "meta" && filePaths[i].Substring(0, 2) == GameObject.Find("Data").GetComponent<DataHolder>().chosenArc)
             {
                 StreamReader reader = new StreamReader(filePaths[i]);
                 string json = reader.ReadLine();
