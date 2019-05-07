@@ -7,15 +7,14 @@ using UnityEngine.UI;
 
 public class ScenarioController : MonoBehaviour
 {
-    public GameObject buttonPrefab;
-    public Text titleText, textText;
+    public GameObject buttonPrefab, optionPanel;
+    public Text titleText, textText, optionText, optionDesc;
 
     private List<Scenario> scenarioList;
-    private Scenario tempScenario;
-    private Option option1, option2, option3, option4, option5;
     private List<GameObject> buttonList;
 
     private Scenario currentScenario;
+    private Option currentOption;
 
     void Start()
     {
@@ -67,6 +66,25 @@ public class ScenarioController : MonoBehaviour
         }
 
         buttonList.Clear();
+    }
+
+    public void OpenOption(Option option) 
+    {
+        currentOption = option;
+        optionText.text = option.Text;
+        optionDesc.text = option.Description;
+        optionPanel.SetActive(true);
+    }
+
+    public void AcceptOption()
+    {
+        optionPanel.SetActive(false);
+        ChangeScenario(currentOption.Link, currentOption);
+    }
+
+    public void CloseOption()
+    {
+        optionPanel.SetActive(false);
     }
 
     public void ChangeScenario(int scenario, Option option)
