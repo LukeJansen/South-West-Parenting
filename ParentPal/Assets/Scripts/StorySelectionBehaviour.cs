@@ -49,7 +49,7 @@ public class StorySelectionBehaviour : MonoBehaviour
 
     public void LoadStoryOne()
     {
-        GameObject.Find("Data").GetComponent<DataHolder>().chosenArc = "SF";
+        GameObject.Find("Data").GetComponent<DataHolder>().chosenArc = "SFS";
         SceneManager.LoadScene(1);
     }
 

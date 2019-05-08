@@ -21,14 +21,12 @@ public class ScenarioController : MonoBehaviour
         buttonList = new List<GameObject>();
         scenarioList = new List<Scenario>();
 
-        string[] filePaths = Directory.GetFiles(@"Assets/Files/");
+        string[] filePaths = Directory.GetFiles(@"Assets/Files/" + GameObject.Find("Data").GetComponent<DataHolder>().chosenArc);
 
         for (int i = 0; i < filePaths.Length; i++)
         {
-            Debug.Log(filePaths[i].Substring(13, 2));
-            Debug.Log(GameObject.Find("Data").GetComponent<DataHolder>().chosenArc);
 
-            if (filePaths[i].Substring(filePaths[i].Length - 4) != "meta" && filePaths[i].Substring(13, 2) == GameObject.Find("Data").GetComponent<DataHolder>().chosenArc)
+            if (filePaths[i].Substring(filePaths[i].Length - 4) != "meta")
             {
                 StreamReader reader = new StreamReader(filePaths[i]);
                 string json = reader.ReadLine();
