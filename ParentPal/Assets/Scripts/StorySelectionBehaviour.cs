@@ -38,13 +38,13 @@ public class StorySelectionBehaviour : MonoBehaviour
         storyOnePanel.position = new Vector3(screenWidth / 2, ((screenHeight / 2) + screenHeight * 0.2f));
         storyTwoPanel.position = new Vector3(screenWidth / 2, ((screenHeight / 2) - screenHeight * 0.2f));
 
-        mainPanel.GetComponent<Image>().color = GetComponentInParent<AppStyling>().BackgroundColour;
+        //mainPanel.GetComponent<Image>().color = GetComponentInParent<AppStyling>().BackgroundColour;
 
-        storyOnePanel.GetComponent<Image>().color = GetComponentInParent<AppStyling>().CardColour;
-        storyTwoPanel.GetComponent<Image>().color = GetComponentInParent<AppStyling>().CardColour;
+        //storyOnePanel.GetComponent<Image>().color = GetComponentInParent<AppStyling>().CardColour;
+        //storyTwoPanel.GetComponent<Image>().color = GetComponentInParent<AppStyling>().CardColour;
 
-        storyOneButton.GetComponent<Image>().color = GetComponentInParent<AppStyling>().ButtonColour;
-        storyTwoButton.GetComponent<Image>().color = GetComponentInParent<AppStyling>().ButtonColour;
+        //storyOneButton.GetComponent<Image>().color = GetComponentInParent<AppStyling>().ButtonColour;
+        //storyTwoButton.GetComponent<Image>().color = GetComponentInParent<AppStyling>().ButtonColour;
     }
 
     public void LoadStoryOne()

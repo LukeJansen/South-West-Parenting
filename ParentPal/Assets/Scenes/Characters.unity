@@ -190,6 +190,7 @@ GameObject:
   - component: {fileID: 292288444}
   - component: {fileID: 292288443}
   - component: {fileID: 292288442}
+  - component: {fileID: 292288445}
   m_Layer: 0
   m_Name: Canvas
   m_TagString: Untagged
@@ -277,6 +278,24 @@ Canvas:
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
+--- !u!114 &292288445
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 292288440}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1b58ecd10371b3e4582766a0319963ea, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cardColour: {r: 0, g: 0, b: 0, a: 0}
+  backgroundSprite: {fileID: 0}
+  buttonSprite: {fileID: 0}
+  cardSprite: {fileID: 0}
+  crossButtonSprite: {fileID: 0}
+  homeButtonSprite: {fileID: 0}
 --- !u!1 &401470037
 GameObject:
   m_ObjectHideFlags: 0
@@ -370,7 +389,7 @@ GameObject:
   - component: {fileID: 576866636}
   m_Layer: 0
   m_Name: Button_AddCharacterTwo
-  m_TagString: Untagged
+  m_TagString: button
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -468,7 +487,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
+  m_Sprite: {fileID: 0}
   m_Type: 1
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -498,7 +517,7 @@ GameObject:
   - component: {fileID: 633750214}
   m_Layer: 0
   m_Name: Panel_CharacterThree
-  m_TagString: Untagged
+  m_TagString: card
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -536,14 +555,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 0, b: 0, a: 0.392}
+  m_Color: {r: 1, g: 1, b: 1, a: 0.76862746}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
+  m_Sprite: {fileID: 0}
   m_Type: 1
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -573,7 +592,7 @@ GameObject:
   - component: {fileID: 757310230}
   m_Layer: 0
   m_Name: Panel_CharacterOne
-  m_TagString: Untagged
+  m_TagString: card
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -611,14 +630,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.94708157, g: 1, b: 0, a: 0.392}
+  m_Color: {r: 1, g: 1, b: 1, a: 0.76862746}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
+  m_Sprite: {fileID: 0}
   m_Type: 1
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -649,7 +668,7 @@ GameObject:
   - component: {fileID: 1023850388}
   m_Layer: 0
   m_Name: Button_AddCharacterThree
-  m_TagString: Untagged
+  m_TagString: button
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -747,7 +766,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
+  m_Sprite: {fileID: 0}
   m_Type: 1
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -777,7 +796,7 @@ GameObject:
   - component: {fileID: 1053798251}
   m_Layer: 0
   m_Name: Panel_CharacterTwo
-  m_TagString: Untagged
+  m_TagString: card
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -815,14 +834,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 0.14507627, b: 1, a: 0.392}
+  m_Color: {r: 1, g: 1, b: 1, a: 0.76862746}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
+  m_Sprite: {fileID: 0}
   m_Type: 1
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -853,7 +872,7 @@ GameObject:
   - component: {fileID: 1291876113}
   m_Layer: 0
   m_Name: Button_AddCharacterOne
-  m_TagString: Untagged
+  m_TagString: button
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -951,7 +970,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
+  m_Sprite: {fileID: 0}
   m_Type: 1
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -979,6 +998,7 @@ GameObject:
   - component: {fileID: 1420420011}
   - component: {fileID: 1420420010}
   - component: {fileID: 1420420009}
+  - component: {fileID: 1420420012}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -1051,6 +1071,24 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1420420012
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1420420008}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1b58ecd10371b3e4582766a0319963ea, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cardColour: {r: 0, g: 0, b: 0, a: 0}
+  backgroundSprite: {fileID: 21300000, guid: 95f5ffbaa94ee69429c9855e335d02ad, type: 3}
+  buttonSprite: {fileID: 21300000, guid: 8c2c24c52dc70b64299395bf8a004f4c, type: 3}
+  cardSprite: {fileID: 21300000, guid: 4ae1c9a655a4bbc46b74a3da109a3e8a, type: 3}
+  crossButtonSprite: {fileID: 0}
+  homeButtonSprite: {fileID: 0}
 --- !u!1 &1615458164
 GameObject:
   m_ObjectHideFlags: 0
@@ -1121,7 +1159,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Teen Strategy
+  m_Text: Character Three
 --- !u!222 &1615458167
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1200,7 +1238,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Teen Strategy
+  m_Text: Character One
 --- !u!222 &1670554642
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1279,7 +1317,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Teen Strategy
+  m_Text: Character Two
 --- !u!222 &1717096876
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1302,7 +1340,7 @@ GameObject:
   - component: {fileID: 2020539673}
   m_Layer: 0
   m_Name: Panel
-  m_TagString: Untagged
+  m_TagString: background
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1362,14 +1400,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.5019608, g: 0.88263893, b: 1, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
+  m_Sprite: {fileID: 0}
   m_Type: 1
   m_PreserveAspect: 0
   m_FillCenter: 1
