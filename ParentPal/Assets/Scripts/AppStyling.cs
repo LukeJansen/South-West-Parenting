@@ -5,18 +5,18 @@ using UnityEngine;
 public class AppStyling : MonoBehaviour
 {
     private Color buttonColour;
+    [SerializeField]
     private Color cardColour;
     private Color backgroundColour;
 
     [SerializeField]
     private Canvas canvas;
 
-    // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
-        buttonColour = new Color(88, 204, 249);
-        cardColour = new Color(0.741f, 0.913f, 0.992f);
-        backgroundColour = new Color(1, 1, 1, 1);
+        buttonColour = new Color(0.345f, 0.8f, 0.976f);
+        cardColour = new Color(0.741f, 0.913f, 0.992f, 1f);
+        backgroundColour = new Color(1f, 1f, 1f, 1f);
 
         //SetColours(canvas);
     }
