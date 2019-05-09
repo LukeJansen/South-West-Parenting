@@ -58,7 +58,8 @@ public class ResponsiveUI : MonoBehaviour
         clickPanel.anchoredPosition = new Vector3(0, -(clickPanel.sizeDelta.y * 0.5f), 0);
         optionPanel.sizeDelta = new Vector2(screenWidth, screenHeight * buttonShare);
         optionPanel.anchoredPosition = new Vector3(0, optionPanel.sizeDelta.y * 0.5f, 0);
-        optionDesc.sizeDelta = new Vector2(screenWidth * 0.9f, 500);
+        optionDesc.sizeDelta = new Vector2(screenWidth * 0.9f, screenHeight * 0.2f);
+        optionDesc.anchoredPosition = new Vector3(0, -((optionDesc.sizeDelta.y * 0.5f) + 100), 0);
 
         // Resize Option Buttons
         backButton.sizeDelta = new Vector2(screenWidth * 0.3f, screenHeight * 0.05f);
