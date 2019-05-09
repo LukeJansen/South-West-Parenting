@@ -15,6 +15,7 @@ public class ButtonData : MonoBehaviour
 
     private void Click()
     {
-        transform.parent.GetComponent<ScenarioController>().ChangeScenario(Link, Option);
+        //transform.parent.GetComponent<ScenarioController>().ChangeScenario(Link, Option);
+        transform.parent.GetComponent<ScenarioController>().OpenOption(Option);
     }
 }

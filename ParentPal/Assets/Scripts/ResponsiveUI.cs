@@ -10,7 +10,7 @@ public class ResponsiveUI : MonoBehaviour
     private int minButtonHeight, maxButtonHeight;
     private float titleShare, textShare, buttonShare, imageShare;
 
-    public RectTransform scenarioScroll, scenarioTitle, scenarioTextBox, scenarioImage;
+    public RectTransform scenarioScroll, scenarioTitle, scenarioTextBox, scenarioImage, optionPanel, clickPanel, optionDesc, backButton, acceptButton;
     public Text scenarioText;
     public List<GameObject> buttons;
 
@@ -52,6 +52,19 @@ public class ResponsiveUI : MonoBehaviour
         // Move the scenario's title to the correct position.
         scenarioTitle.sizeDelta = new Vector2(screenWidth, screenHeight * titleShare);
         scenarioTitle.anchoredPosition = new Vector2(0, -(screenHeight * (titleShare * 0.5f)));
+
+        // Resize Option Choice Panel
+        clickPanel.sizeDelta = new Vector2(screenWidth, screenHeight * (1 - buttonShare));
+        clickPanel.anchoredPosition = new Vector3(0, -(clickPanel.sizeDelta.y * 0.5f), 0);
+        optionPanel.sizeDelta = new Vector2(screenWidth, screenHeight * buttonShare);
+        optionPanel.anchoredPosition = new Vector3(0, optionPanel.sizeDelta.y * 0.5f, 0);
+        optionDesc.sizeDelta = new Vector2(screenWidth * 0.9f, 500);
+
+        // Resize Option Buttons
+        backButton.sizeDelta = new Vector2(screenWidth * 0.3f, screenHeight * 0.05f);
+        backButton.anchoredPosition = new Vector3(-(backButton.sizeDelta.x * 0.5f) - 50, 100, 0);
+        acceptButton.sizeDelta = new Vector2(screenWidth * 0.3f, screenHeight * 0.05f);
+        acceptButton.anchoredPosition = new Vector3((acceptButton.sizeDelta.x * 0.5f) + 50, 100, 0);
     }
 
     // Function to grab the size of the screen.
@@ -82,6 +95,8 @@ public class ResponsiveUI : MonoBehaviour
             float y = ((buttonHeight * ((buttons.Count + 1) - i)) - (ySpacing * (i + 1))) - (buttonHeight * 0.5f);
             buttonTransform.anchoredPosition = new Vector3(0f, y, 0f);
         }
+
+        optionPanel.parent.SetAsLastSibling();
     }
 
     public void ResizeTextBox()

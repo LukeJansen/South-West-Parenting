@@ -35,7 +35,6 @@ public class EndScreenBehaviour : MonoBehaviour
 
     private void OptionText()
     {
-        Debug.Log(GameObject.Find("Data").GetComponent<DataHolder>().chosenOptions);
         List<Option> options = GameObject.Find("Data").GetComponent<DataHolder>().chosenOptions;
 
         for (int i = 0; i < options.Count; i++)
