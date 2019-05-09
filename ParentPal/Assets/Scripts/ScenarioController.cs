@@ -21,18 +21,17 @@ public class ScenarioController : MonoBehaviour
         buttonList = new List<GameObject>();
         scenarioList = new List<Scenario>();
 
-        string[] filePaths = Directory.GetFiles(@"Assets/Files/" + GameObject.Find("Data").GetComponent<DataHolder>().chosenArc);
+        //string[] filePaths = Directory.GetFiles(@"Assets/Files/" + GameObject.Find("Data").GetComponent<DataHolder>().chosenArc);
+        object[] filePaths = Resources.LoadAll("Files/" + GameObject.Find("Data").GetComponent<DataHolder>().chosenArc, typeof(TextAsset));
 
         for (int i = 0; i < filePaths.Length; i++)
         {
 
-            if (filePaths[i].Substring(filePaths[i].Length - 4) != "meta")
-            {
-                StreamReader reader = new StreamReader(filePaths[i]);
-                string json = reader.ReadLine();
-                scenarioList.Add(Scenario.CreateFromJson(json));
-                reader.Close();
-            }
+            //StreamReader reader = new StreamReader(filePaths[i]);
+            //string json = reader.ReadLine();
+            TextAsset file = filePaths[i] as TextAsset;
+            string json = file.text;
+            scenarioList.Add(Scenario.CreateFromJson(json));
         }
 
         currentScenario = scenarioList[0];
