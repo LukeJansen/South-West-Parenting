@@ -41,8 +41,6 @@ public class AppStyling : MonoBehaviour
     public void UpdateAppStyling()
     {
 
-        Debug.Log("update app styling called");
-
         mainCameraChildren = GetComponentsInChildren<Image>();
 
         foreach (Image child in mainCameraChildren)

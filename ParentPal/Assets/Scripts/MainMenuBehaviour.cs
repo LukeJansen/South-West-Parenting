@@ -8,6 +8,8 @@ public class MainMenuBehaviour : MonoBehaviour
 {
     public RectTransform mainPanel, menuTitle, playPanel, CharacterEditorPanel, playButton, characterEditorButton;
 
+    public GameObject dataObject;
+
     private float screenWidth, screenHeight;
 
     // Start is called before the first frame update
@@ -15,6 +17,16 @@ public class MainMenuBehaviour : MonoBehaviour
     {
         GrabScreenSize();
         Setup();
+        DataSetup();
+    }
+
+    private void DataSetup()
+    {
+        if (GameObject.Find("Data") == null)
+        {
+            GameObject data = Instantiate(dataObject);
+            data.name = "Data";
+        }
     }
 
     private void GrabScreenSize()
