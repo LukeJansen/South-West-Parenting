@@ -29,8 +29,8 @@ public class EndScreenBehaviour : MonoBehaviour
         RectTransform mainPanel = GetComponent<RectTransform>();
         mainPanel.sizeDelta = new Vector2(screenWidth, screenHeight);
         optionTitle.anchoredPosition = new Vector2(0, -screenHeight * 0.1f);
-        optionText.sizeDelta = new Vector2(screenWidth * 0.7f, screenHeight * 0.3f);
-        optionText.anchoredPosition = new Vector2(0, -screenHeight * 0.2f);
+        optionText.sizeDelta = new Vector2(screenWidth * 0.7f, screenHeight * 0.8f);
+        optionText.anchoredPosition = new Vector2(0, -screenHeight * 0.1f);
     }
 
     private void OptionText()
